@@ -1,12 +1,10 @@
-/* Selector universal (*) / modifica toda la página */
+/* Raíz */
 
     *, *::before, *::after {
       box-sizing: inherit;
     }
 
-/* Pseudo-clases (:element) / especifica un estado especial del elemento seleccionado */
-
-  /* Custom properties */
+/* Custom properties */
   
       :root {
       --white: #f9f9f9;
@@ -20,8 +18,6 @@
       --subtitle: 3rem;
     }
 
-/* Selector de Tipo (element {}) / mofifica todos los mismos tipos de etiqueta */
-
     html {
       font-size: 62.5%;
       box-sizing: border-box;
@@ -34,17 +30,18 @@
       background: linear-gradient(180deg, rgba(249,249,249,1) 0%, rgba(48,47,48,1) 100%);
     }
 
-    a {
-      text-decoration: none;
-    }
-
     h1 {
       font-size: var(--title);
       margin: 0;
     }
 
+    h1 span {
+      font-size: 1.6rem;
+      color: #0096c7;
+    }
+
     h2 {
-      font-size: var(--subtitle) !important;
+      font-size: var(--subtitle);
     }
 
     header {
@@ -52,13 +49,26 @@
       padding: 2.5rem 0;
     }
 
-    
+    a {
+      text-decoration: none;
+    }
 
-/* Selector por Descendientes (elemento-padre elemento-hijo {}) / modifica los elementos señalados que esten dentro de otro elemento señalado */
+    @media (max-width: 43rem) {
+      h1 {
+        font-size: 3rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+    }
+ 
+/* Barra de navegación */
 
-    h1 span {
-      font-size: 1.6rem;
-      color: #0096c7;
+    .main-nav {
+      margin: auto;
+      background: var(--dark);
+      display: flex;
+      justify-content: space-between;
     }
 
     .main-nav a {
@@ -67,17 +77,6 @@
       padding: 1rem;
       font-weight: 700;
       font-size: 2rem;
-    }
-
-/* Selector de Clases (.element) / modifica a los elementos señalados mediante el atributo "class" */
-    
-  /* Barra de navegación */
-
-    .main-nav {
-      margin: auto;
-      background: var(--dark);
-      display: flex;
-      justify-content: space-between;
     }
 
     .main-nav a:hover {
@@ -90,10 +89,27 @@
     }
 
     .container {
-      width: 120rem;
-    }
+  width: 120rem;
+}
 
-  /* Imagen pricipal */
+@media (max-width: 83rem) {
+  .container {
+    width: 100%;
+  }
+}
+
+    @media (max-width: 42rem) {
+      .main-nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      .main-nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+    }
+/* Imagen pricipal */
 
     .hero {
       background-image: url(../img/3d-estructura-abstracta_3840x2160_xtrafondos.com.jpg);
@@ -147,6 +163,23 @@
       text-align: center;
     }
 
+    @media (max-width: 43rem) {
+      .hero-subtitle {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 0;
+      }
+
+      .btn {
+        width: 90%;
+        text-align: center;
+      }
+    }
+
+/* Pagina Inferior */
+
     .shadow {
       margin: auto;
       background: var(--white);
@@ -191,11 +224,11 @@
       align-items: center;
     }
 
-
-    .form-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    @media (max-width: 43rem) {
+      .service-cards {
+        display: flex;
+        flex-direction: column;
+      }
     }
 
     fieldset {
@@ -216,7 +249,7 @@
       color: #0096c7;
       text-transform: uppercase;
       display: block;
-      padding-top: 4rem;
+      padding-top: 5rem;
       font-weight: 700;
       font-size: 2rem;
     }
@@ -234,6 +267,12 @@
 
     textarea {
       resize: none;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .form-section1 {
@@ -263,6 +302,24 @@
       text-align: center;
       color: var(--white);
     }
+
+    @media (max-width:43rem) {
+      fieldset {
+        width: 90%;
+      }
+
+      .form-section1 {
+        flex-direction: column;
+      }
+
+      .half-width {
+        width: 100%;
+      }
+    }
+
+/* Mobile first --- Desktop first */
+
+    
 
 
 
